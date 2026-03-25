@@ -74,7 +74,7 @@ export const updateVendorProfileImage = async (req: Request, res: Response, next
             message: "Vendor not found",
         }); 
       }
-      const files = req.files as Express.Multer.File[];
+      const files = req.files!;
       const images = files.map(file => file.path);
       vendor.coverImages.push(...images);
       console.log(images, "image paths");
@@ -108,7 +108,7 @@ export const Addfood = async (req: Request, res: Response, next: NextFunction) =
             message: "Vendor not found",
         }); 
       }
-      const files = req.files as Express.Multer.File[];
+      const files = req.files!;
       const imagePaths = files.map(file => file.path);
       console.log(imagePaths, "image paths");
         const createFood = await food.create({
