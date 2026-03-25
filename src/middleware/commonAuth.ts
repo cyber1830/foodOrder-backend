@@ -6,7 +6,6 @@ declare global {
     namespace Express {
         interface Request {
             user?: AuthPayload;
-            files?: Express.Multer.File[];
         }
     }
 }
