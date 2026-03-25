@@ -17,8 +17,8 @@ export const GenerateOTP = () => {
 
 export const onRequestOTP = async (otp: number, toPhoneNumber: string) => {
     // integrate with third party sms provider
-    const accountSid = TWILIO_ACCOUNT_SID;
-    const authToken = AUTH_TOKEN; 
+    const accountSid = process.env.TWILIO_ACCOUNT_SID;
+    const authToken = process.env.AUTH_TOKEN; 
     const client = require('twilio')(accountSid, authToken);
     const response = await client.messages.create({
         body: `OTP is ${otp}`,
